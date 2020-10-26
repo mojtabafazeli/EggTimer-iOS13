@@ -3,8 +3,9 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -121,6 +122,53 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJN-th-c5K" userLabel="Timer View">
                                         <rect key="frame" x="0.0" y="571.5" width="374" height="246.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cT0-1L-tey">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="246.5"/>
+                                                <subviews>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="UWV-D7-INB">
+                                                        <rect key="frame" x="0.0" y="120.5" width="374" height="6"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="5" id="3RG-5c-iuI"/>
+                                                        </constraints>
+                                                        <color key="progressTintColor" red="1" green="0.8833383159" blue="0.1882993892" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="trackTintColor" systemColor="systemGray2Color"/>
+                                                    </progressView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvY-BL-EBA">
+                                                        <rect key="frame" x="137.5" y="164.5" width="99" height="47.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                        <state key="normal" title="Restart"/>
+                                                        <connections>
+                                                            <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Di-dG-UrF"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-6y-Tce">
+                                                        <rect key="frame" x="76.5" y="41" width="221" height="39"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="5sp-6y-Tce" firstAttribute="top" secondItem="cT0-1L-tey" secondAttribute="top" constant="41" id="BJP-e6-Kpu"/>
+                                                    <constraint firstItem="UWV-D7-INB" firstAttribute="leading" secondItem="cT0-1L-tey" secondAttribute="leading" id="FXe-qK-ik6"/>
+                                                    <constraint firstItem="UWV-D7-INB" firstAttribute="centerY" secondItem="cT0-1L-tey" secondAttribute="centerY" id="IIf-oI-v1R"/>
+                                                    <constraint firstItem="UWV-D7-INB" firstAttribute="top" secondItem="5sp-6y-Tce" secondAttribute="bottom" constant="40.5" id="QFa-UN-2oc"/>
+                                                    <constraint firstItem="5sp-6y-Tce" firstAttribute="centerX" secondItem="cT0-1L-tey" secondAttribute="centerX" id="Sq4-dk-goe"/>
+                                                    <constraint firstItem="bvY-BL-EBA" firstAttribute="centerX" secondItem="cT0-1L-tey" secondAttribute="centerX" id="Vi4-jL-s6o"/>
+                                                    <constraint firstItem="bvY-BL-EBA" firstAttribute="top" secondItem="UWV-D7-INB" secondAttribute="bottom" constant="39" id="X0j-kX-lIP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="UWV-D7-INB" secondAttribute="trailing" id="cLi-bv-Bq6"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bvY-BL-EBA" secondAttribute="bottom" constant="34.5" id="yDf-8f-M82"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cT0-1L-tey" firstAttribute="top" secondItem="nJN-th-c5K" secondAttribute="top" id="0p4-oQ-5xj"/>
+                                            <constraint firstItem="cT0-1L-tey" firstAttribute="leading" secondItem="nJN-th-c5K" secondAttribute="leading" id="BaD-mA-5RN"/>
+                                            <constraint firstAttribute="bottom" secondItem="cT0-1L-tey" secondAttribute="bottom" id="H1n-FA-5om"/>
+                                            <constraint firstAttribute="trailing" secondItem="cT0-1L-tey" secondAttribute="trailing" id="omO-gZ-iaE"/>
+                                            <constraint firstItem="cT0-1L-tey" firstAttribute="centerY" secondItem="nJN-th-c5K" secondAttribute="centerY" id="rlb-2M-0xU"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -136,6 +184,8 @@
                     </view>
                     <connections>
                         <outlet property="headerTitle" destination="XLm-5r-pSP" id="fy1-DR-9gb"/>
+                        <outlet property="progressBar" destination="UWV-D7-INB" id="PDe-7C-Wam"/>
+                        <outlet property="remainingTime" destination="5sp-6y-Tce" id="XnD-nN-6yS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -147,5 +197,8 @@
         <image name="hard_egg" width="287.5" height="366"/>
         <image name="medium_egg" width="288" height="363"/>
         <image name="soft_egg" width="287" height="365"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
